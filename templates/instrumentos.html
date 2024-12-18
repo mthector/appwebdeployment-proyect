@@ -19,15 +19,17 @@ Gear4Music | Instruments
 
 <div class="d-flex flex-wrap justify-content-center">
     {% for instrument in instruments %}
-        <div class="card text-center mb-3" style="width: 18rem; margin-right: 15px;">
-            <div class="card-body">
-                <img src="{{ instrument.image }}" class="card-img-top" alt="...">
-                <h5 class="card-title">{{instrument.name}}</h5>
-                <a href="/instrument/{{instrument.id}}/details/" class="btn btn-primary">Details</a>
-                <a href="/instrument/{{instrument.id}}/update/" class="btn btn-secondary">Update Info</a>
-                <a href="/instrument/{{instrument.id}}/delete/" class="btn btn-secondary">Delete</a>
+    <div class="card text-center mb-3" style="width: 18rem; margin-right: 15px;">
+        <div class="card-body">
+            <img src="{{ instrument.image }}" class="card-img-top" alt="...">
+            <h5 class="card-title">{{instrument.name}}</h5>
+            <div class="btn-group" role="group" aria-label="Instrument Actions">
+                <a href="/instrument/{{instrument.id}}/details/" class="btn btn-info">Details</a>
+                <a href="/instrument/{{instrument.id}}/update/" class="btn btn-warning">Update</a>
+                <a href="/instrument/{{instrument.id}}/delete/" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar este instrumento?');">Delete</a>
             </div>
         </div>
+    </div>
     {% endfor %}
 </div>
 

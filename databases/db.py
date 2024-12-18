@@ -1,3 +1,4 @@
+from flask_login import UserMixin
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import DeclarativeBase, relationship
@@ -36,3 +37,10 @@ class Instrument(db.Model):
 
     category_id = Column(Integer,ForeignKey('categories.id'), nullable=False)
     category = relationship('Category', backref='instruments')
+
+class User(db.Model, UserMixin):
+    """Users"""
+    __tablename__ = 'user'
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    name = Column(String(50), nullable=False)
+    password = Column(String(200), nullable=True)

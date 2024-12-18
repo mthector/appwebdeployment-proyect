@@ -41,6 +41,7 @@ def add_data_tables():
             Supplier(name="Iberpiano")
         ]
 
+
         db.session.add_all(categories)
         db.session.add_all(suppliers)
         db.session.commit()
