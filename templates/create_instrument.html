@@ -1,0 +1,88 @@
+{% extends "index.html" %}
+
+{% block title %}
+Gear4Muscic | Create Instrument
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h2 class="text-center display-3 text-warning my-7 font-weight-bold">
+        CREATE INSTRUMENT
+    </h2>
+    <form action="." method="POST">
+        <div class="mb-3">
+            <label for="name" class="form-label">{{ form.name.label() }}</label>
+            {{ form.name(class="form-control") }}
+            {% if form.name.errors and request.method == 'POST' %}
+                <div class="text-danger">
+                    <ul class="list-unstyled">
+                        {% for error in form.name.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="mb-3">
+            <label for="category_id" class="form-label">{{ form.category_id.label() }}</label>
+            {{ form.category_id(class="form-select") }}
+            {% if form.category_id.errors and request.method == "POST" %}
+                <div class="text-danger">
+                    <ul class="list-unstyled">
+                        {% for error in form.category_id.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="mb-3">
+            <label for="supplier_id" class="form-label">{{ form.supplier_id.label() }}</label>
+            {{ form.supplier_id(class="form-select") }}
+            {% if form.supplier_id.errors and request.method == "POST" %}
+                <div class="text-danger">
+                    <ul class="list-unstyled">
+                        {% for error in form.supplier_id.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="mb-3">
+            <label for="image" class="form-label">{{ form.image.label() }}</label>
+            {{ form.image(class="form-select") }}
+            {% if form.image.errors and request.method == "POST" %}
+                <div class="text-danger">
+                    <ul class="list-unstyled">
+                        {% for error in form.image.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="mb-3">
+            <label for="image_2" class="form-label">{{ form.image_2.label() }}</label>
+            {{ form.image_2(class="form-select") }}
+            {% if form.image_2.errors and request.method == "POST" %}
+                <div class="text-danger">
+                    <ul class="list-unstyled">
+                        {% for error in form.image_2.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="mb-3">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+</div>
+{% endblock %}

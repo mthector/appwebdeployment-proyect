@@ -1,0 +1,51 @@
+{% extends "index.html" %}
+
+{% block title %}
+Gear4Music | {{ query }}
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="mb-4">
+        <h1 class="display-4">Search results for: "{{ query }}"</h1>
+        <p class="lead">Here you will find the instruments related to your search.</p>
+    </div>
+
+    {% if instruments %}
+    <div class="list-group">
+        {% for instrument in instruments %}
+            <div class="list-group-item d-flex justify-content-between align-items-center">
+
+                <div class="me-3" style="max-width: 100px; max-height: 100px;">
+                    <img src="{{instrument.image}}" alt="{{ instrument.name }}" class="img-fluid rounded">
+                </div>
+
+                <div class="flex-grow-1">
+                    <span>{{ instrument.name }}</span>
+                </div>
+
+
+                <div class="d-flex">
+
+                    <a href="{{ url_for('details', id=instrument.id) }}" class="btn btn-info btn-sm me-2">Details</a>
+
+
+                    <a href="{{ url_for('update', id=instrument.id) }}" class="btn btn-warning btn-sm me-2">Update</a>
+
+
+                    <a href="{{ url_for('delete', id=instrument.id) }}" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que deseas eliminar este instrumento?');">Delete</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    {% else %}
+        <div class="alert alert-warning" role="alert">
+            No results found for "<strong>{{ query }}</strong>".
+        </div>
+    {% endif %}
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock %}
+

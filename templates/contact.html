@@ -1,0 +1,102 @@
+{% extends "index.html" %}
+
+{% block title %}
+Gear4Music | Contact
+{% endblock %}
+
+{% block body %}
+
+<div class="container mt-5">
+    <h2 class="text-center display-3 text-warning my-7 font-weight-bold">
+        OUR WAREHOUSES
+    </h2>
+
+
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-lg">
+                <img src="https://static-r2.gear4music.com/resources/Images/SWEDISH-HUB/2024/showroom-1.jpg" class="card-img-top" alt="Oficinas de Google 1">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Piano Zone</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-lg">
+                <img src="https://static-r2.gear4music.com/resources/Images/SWEDISH-HUB/2024/showroom-3.jpg" class="card-img-top" alt="Oficinas de Google 2">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Mixer area</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-lg">
+                <img src="https://static-r2.gear4music.com/resources/Images/SWEDISH-HUB/2024/showroom-4.jpg" class="card-img-top" alt="Oficinas de Google 3">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Speaker Zone</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row text-center mt-5">
+        <div class="col-md-12">
+            <h4 class="mb-3">Location of our offices</h4>
+            <p>Located in the north of Stockholm, close to Arlanda Airport, the Gear4music distribution center and store in Scandinavia</p>
+            <p>
+                <strong>Address:</strong><br>
+                Sweden AB, Metallvägen 45a, 195 Rosersberg 72, Stockholms län
+            </p>
+        </div>
+    </div>
+
+
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <h4 class="text-center mb-4">Our Location on the Map</h4>
+            <div id="map" style="height: 400px;"></div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-12 text-center">
+            <h4 class="mb-3">Follow us on Social Networks</h4>
+            <div class="btn-group">
+                <a href="https://www.facebook.com/gear4music" target="_blank" class="btn btn-primary m-2">
+                    <i class="fab fa-facebook"></i> Facebook
+                </a>
+                <a href="https://twitter.com/gear4music" target="_blank" class="btn btn-info m-2">
+                    <i class="fab fa-twitter"></i> Twitter
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+
+<script>
+    // Crear el mapa con Leaflet centrado en las coordenadas de las oficinas
+    var map = L.map('map').setView([59.6240, 17.9290], 13); // Coordenadas de Rosersberg, cerca de Estocolmo
+
+    // Añadir una capa de mapa de OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Colocar un marcador en las coordenadas de la oficina
+    var marker = L.marker([59.6240, 17.9290]).addTo(map);
+    marker.bindPopup("<b>Gear4Music</b><br>Our warehouse and offices in Sweden.");
+</script>
+
+{% endblock %}

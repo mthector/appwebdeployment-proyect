@@ -1,0 +1,51 @@
+{% extends "index.html" %}
+
+{% block body %}
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="card shadow-sm" style="width: 450px; padding: 25px; border-radius: 10px;">
+        
+
+        <h2 class="text-center mb-4" style="font-size: 2.5rem; font-weight: 700; color: #343a40; text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);">
+            LOGIN
+        </h2>
+
+        <form action="." method="POST">
+
+            <div class="mb-3">
+                {{ form.name.label(class="form-label") }}
+                {{ form.name(class="form-control") }} 
+                {% if form.name.errors and request.method == 'POST' %}
+                    <ul class="list-unstyled text-danger">
+                        {% for error in form.name.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+
+            <div class="mb-3">
+                {{ form.password.label(class="form-label") }}
+                {{ form.password(class="form-control") }} 
+                {% if form.password.errors and request.method == 'POST' %}
+                    <ul class="list-unstyled text-danger">
+                        {% for error in form.password.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+
+            <div class="mb-3">
+                {{ form.submit(class="btn btn-warning w-100") }} 
+            </div>
+        </form>
+
+        <div class="text-center">
+            <a href="/register/" class="text-muted">Already have an account? Login</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
